@@ -19,7 +19,7 @@ pluginFade conf = conf
 
 myFadeHook = composeAll -- last rule wins
   [ opaque
-  , isUnfocused --> transparency 0.1
+  --, isUnfocused --> transparency 0.1 -- this was somewhat annoying.
   , className =? "Audacious" --> transparency 0.3
   , className =? "Audacious" <&&> isUnfocused --> transparency 0.75
   , className =? "Geeqie" <&&> title =? "Helskärm - Geeqie" --> opaque
