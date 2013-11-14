@@ -57,13 +57,15 @@ pluginKeyBindings conf = conf { modMask = mod4Mask } `additionalKeysP`
   , ("M-S-<R>", windows swapDown)
   --
   --, ("C-M1-<End>", spawn "gnome-screensaver-command -l")
-  , ("C-M1-<End>", spawn "xlock")
+  --, ("C-M1-<End>", spawn "xlock")
   --
   , ("M-n", spawn "firefox")
+  , ("M-S-n", spawn "firefox -new-instance -ProfileManager")
   , ("M-a", spawn "acroread -openInNewWindow")
   , ("M-c", spawn "evolution -c calendar")
   , ("M-z", spawn "urxvtcd")
   , ("M-m", spawn "urxvtcd -e mutt")
+  , ("M-p", spawn "urxvtcd -e slrn -h news.eternal-september.org")
   , ("M-v", spawn "urxvtcd -e vim")
   , ("M-s", startScratch "music")
   , ("M-S-s", spawn "pavucontrol")
