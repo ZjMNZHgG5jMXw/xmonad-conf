@@ -8,7 +8,6 @@ import XMonad.Plugin.KeyBindings ( pluginKeyBindings )
 import XMonad.Plugin.Layout ( autoLayout )
 import XMonad.Plugin.InstantM ( pluginIM )
 import XMonad.Plugin.Scratch ( pluginScratch )
-import XMonad.Plugin.Java ( pluginJava )
 import XMonad.Plugin.Fading ( pluginFade )
 
 conf = defaultConfig 
@@ -19,7 +18,6 @@ conf = defaultConfig
 customise
   = ewmh
   . pluginFade
-  . pluginJava
   . pluginScratch
   . pluginFloats
   . pluginFocus
