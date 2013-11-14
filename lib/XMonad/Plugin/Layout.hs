@@ -5,6 +5,8 @@ module XMonad.Plugin.Layout
 
 import XMonad hiding ( openDisplay, closeDisplay )
 import XMonad.Layout.Named ( named )
+import XMonad.Layout.LayoutHints ( layoutHintsToCenter )
+import XMonad.Layout.Spacing ( spacing )
 import XMonad.Layout.PerWorkspace ( onWorkspaces )
 import XMonad.Layout.IndependentScreens ( withScreens )
 
@@ -19,8 +21,8 @@ tall = Tall
   , tallRatio = 61803398/100000000
   }
 
-landscape = named "|h|" tall ||| named "-v-" (Mirror tall) ||| named "[f]" Full
-portrait  = named "-v-" (Mirror tall) ||| named "|h|" tall ||| named "[f]" Full
+landscape = layoutHintsToCenter $ (named "|h|" $ spacing 1 tall) ||| (named "-v-" $ spacing 1 (Mirror tall)) ||| named "[f]" Full
+portrait  = layoutHintsToCenter $ (named "-v-" $ spacing 1 (Mirror tall)) ||| (named "|h|" $ spacing 1 tall) ||| named "[f]" Full
 
 pluginLayout fun conf = conf
   { layoutHook  = onWorkspaces (filter fun (workspaces conf)) portrait landscape }
